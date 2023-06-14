@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibraryMenagmentModelStoreContainer" CdmEntityContainer="LibraryMenagmentEntities">
+    <EntitySetMapping Name="authors">
+      <EntityTypeMapping TypeName="LibraryMenagmentModel.author">
+        <MappingFragment StoreEntitySet="author">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lcategories">
+      <EntityTypeMapping TypeName="LibraryMenagmentModel.lcategory">
+        <MappingFragment StoreEntitySet="lcategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="catname" ColumnName="catname" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publishers">
+      <EntityTypeMapping TypeName="LibraryMenagmentModel.publisher">
+        <MappingFragment StoreEntitySet="publisher">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="members">
+      <EntityTypeMapping TypeName="LibraryMenagmentModel.member">
+        <MappingFragment StoreEntitySet="member">
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="books">
+      <EntityTypeMapping TypeName="LibraryMenagmentModel.book">
+        <MappingFragment StoreEntitySet="book">
+          <ScalarProperty Name="edition" ColumnName="edition" />
+          <ScalarProperty Name="pages" ColumnName="pages" />
+          <ScalarProperty Name="contents" ColumnName="contents" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="lcat_id" ColumnName="lcat_id" />
+          <ScalarProperty Name="bname" ColumnName="bname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="issuebooks">
+      <EntityTypeMapping TypeName="LibraryMenagmentModel.issuebook">
+        <MappingFragment StoreEntitySet="issuebook">
+          <ScalarProperty Name="returndate" ColumnName="returndate" />
+          <ScalarProperty Name="issuedate" ColumnName="issuedate" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="returnbooks">
+      <EntityTypeMapping TypeName="LibraryMenagmentModel.returnbook">
+        <MappingFragment StoreEntitySet="returnbook">
+          <ScalarProperty Name="fine" ColumnName="fine" />
+          <ScalarProperty Name="elap" ColumnName="elap" />
+          <ScalarProperty Name="returndate" ColumnName="returndate" />
+          <ScalarProperty Name="book" ColumnName="book" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

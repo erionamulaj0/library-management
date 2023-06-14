@@ -1,0 +1,74 @@
+﻿@model LibraryMengament.Models.book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.author.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lcategory.catname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lcategory.catname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publisher.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publisher.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

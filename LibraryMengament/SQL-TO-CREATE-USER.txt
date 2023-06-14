@@ -1,0 +1,17 @@
+﻿-- Create user
+DECLARE @UserId nvarchar(128)
+DECLARE @Password nvarchar(128)
+DECLARE @RoleId nvarchar(128)
+DECLARE @Email nvarchar(128)
+
+SET @UserId = NEWID() -- generate a new user ID
+SET @Password = 'Asd123123!' -- set the password for the user
+SET @RoleId = '1' -- replace with the actual role ID
+SET @Email = 'user2@gmail.com'
+
+INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName])
+VALUES (@UserId, @Email, 1, 'AAiBKGzkuZ3OWFvibWJQN8Gme22lITaCHW8fHorYwR0kHJ1A1vcZX/Gj47dutXZYmQ==', '0018e670-f370-11ed-a05b-0242ac120003', 0, 0, NULL, 1, 0, @Email)
+
+-- Attach role to user
+INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId])
+VALUES (@UserId, @RoleId)

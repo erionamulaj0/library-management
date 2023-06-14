@@ -1,0 +1,91 @@
+﻿<div class="row">
+    <div class="col-sm-4">
+        @using (Html.BeginForm("Save", "ReturnBook", FormMethod.Post))
+        {
+            <div>
+                <h3>Return Book</h3>
+            </div>
+
+            <div class="form-group">
+                <label>Member ID</label>
+                <input type="text" id="mid" name="mid" class="form-control" placeholder="Member ID" required />
+            </div>
+
+            <div class="form-group">
+                <label>Book</label>
+                <input type="text" id="book" name="book" class="form-control" placeholder="Book" required />
+            </div>
+
+            <div class="form-group">
+                <label>Return Date</label>
+                <input type="text" id="returndate" name="returndate" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label>Days Elaps</label>
+                <input type="text" id="elap" name="elap" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label>Fine</label>
+                <input type="text" id="fine" name="fine" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" required />
+            </div>
+        }
+
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script>
+        getMid();
+
+        function getMid() {
+
+            $("#mid").keyup(function (e) {
+
+
+                $.ajax({
+
+                    type: 'POST',
+                    url: '/ReturnBook/GetMid?mid=' + $("#mid").val(),
+                    dataType: 'JSON',
+                    success: function (data)
+                    {
+                        console.log(data);
+
+                        $("#book").val(data[0].BookName);
+                        $("#returndate").val(new Date(parseInt(data[0].ReturnDate.substr(6))).toLocaleDateString());
+
+                        var elap = data[0].ElapsedDays
+
+                        if (elap > 0) {
+                            var fine = elap * 100;
+                            $('#elap').val(elap);
+                            $('#fine').val(fine.toString());
+                        }
+                        else
+                        {
+                            $('#elap').val("0");
+                            $('#fine').val("0");
+                        }
+
+                    }
+
+                });
+            });
+        }
+
+
+    </script>
+
+} 
