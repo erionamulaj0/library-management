@@ -14,12 +14,16 @@ namespace LibraryMengament.Models
         public class memberMetaData
         {
             [DisplayName("Member Name")]
+            [Required]
             public string name { get; set; }
+           
 
             [DisplayName("Address")]
+            [Required]
             public string address { get; set; }
 
             [DisplayName("Phone")]
+            [Required]
             public Nullable<int> phone { get; set; }
         }
     }

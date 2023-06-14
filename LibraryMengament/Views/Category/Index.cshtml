@@ -1,4 +1,6 @@
-﻿@model IEnumerable<LibraryMengament.Models.lcategory>
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
+@model IEnumerable<LibraryMengament.Models.lcategory>
 
 @{
     ViewBag.Title = "Index";
@@ -7,7 +9,15 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (Request.IsAuthenticated)
+    {
+        var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        var roles = userManager.GetRoles(HttpContext.Current.User.Identity.GetUserId());
+        if (roles.Contains("Admin"))
+        {
+            @Html.ActionLink("Create New", "Create")
+        }
+    }
 </p>
 <table class="table">
     <tr>
@@ -20,20 +30,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.catname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.status)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.catname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>

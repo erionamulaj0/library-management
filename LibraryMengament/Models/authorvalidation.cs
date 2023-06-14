@@ -14,13 +14,17 @@ namespace LibraryMengament.Models
 
         public class authorMetaData
         {
+            
             [DisplayName("Author Name")]
+            [Required(ErrorMessage = "Ju lutem shkruani emrin!")]
             public string name { get; set; }
 
             [DisplayName("Address")]
+
             public string address { get; set; }
             
             [DisplayName("Phone")]
+            [Required]
             public string phone { get; set; }
         }
     }

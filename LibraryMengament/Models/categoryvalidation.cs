@@ -13,9 +13,12 @@ namespace LibraryMengament.Models
         public class lcategoryMetaData
         {
             [DisplayName("Category Name")]
+            [Required]
             public string catname { get; set; }
 
+
             [DisplayName("Status")]
+            [Required]
             public string status { get; set; }
         }
     }

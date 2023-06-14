@@ -32,19 +32,22 @@
                         {
                             <li>@Html.ActionLink("Gmail", "Send", "Gmail")</li>
                             <li>@Html.ActionLink("Users", "Index", "User")</li>
+                            <li>@Html.ActionLink("Category", "Index", "Category")</li>
+                            <li>@Html.ActionLink("Author", "Index", "Author")</li>
+                            <li>@Html.ActionLink("Publisher", "Index", "Publisher")</li>
+                            <li>@Html.ActionLink("Member", "Index", "Member")</li>
                         }
                         else if (roles.Contains("Professor"))
                         {
-                            <li>@Html.ActionLink("Gmail", "Send", "Gmail")</li>
+                            <li>@Html.ActionLink("Category", "Index", "Category")</li>
+                            <li>@Html.ActionLink("Author", "Index", "Author")</li>
+                            <li>@Html.ActionLink("Publisher", "Index", "Publisher")</li>
                         }
 
-                    <li>@Html.ActionLink("Category", "Index", "Category")</li>
-                    <li>@Html.ActionLink("Author", "Index", "Author")</li>
-                    <li>@Html.ActionLink("Publisher", "Index", "Publisher")</li>
-                    <li>@Html.ActionLink("Member", "Index", "Member")</li>
-                    <li>@Html.ActionLink("Book", "Index", "Book")</li>
-                    <li>@Html.ActionLink("IssueBook", "Index", "IssueBook")</li>
-                    <li>@Html.ActionLink("ReturnBook", "Index", "ReturnBook")</li>
+
+                        <li>@Html.ActionLink("Book", "Index", "Book")</li>
+                        <li>@Html.ActionLink("IssueBook", "Index", "IssueBook")</li>
+                        <li>@Html.ActionLink("ReturnBook", "Index", "ReturnBook")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -61,6 +64,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>
